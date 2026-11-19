@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semoga Berhenti</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-pill">
+        <span class="dot-live"></span>
+        <span>Tersimpan Otomatis di Browser</span>
+      </div>
+      <h1>Semoga Berhenti</h1>
+      <p class="start-info" id="startTimeLabel">Mulai: 19 November 2026 pukul 15:30 WIB</p>
+    </header>
+
+    <section class="card" aria-label="Timer Real-Time">
+      <div class="card-title">
+        <span>Waktu Bertahan</span>
+        <span id="totalHoursLabel">0 jam berjalan</span>
+      </div>
+      <div class="timer-grid">
+        <div class="time-box">
+          <div class="time-value" id="daysVal">00</div>
+          <div class="time-label">Hari</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="hoursVal">00</div>
+          <div class="time-label">Jam</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="minutesVal">00</div>
+          <div class="time-label">Menit</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="secondsVal">00</div>
+          <div class="time-label">Detik</div>
+        </div>
+      </div>
+      <div class="status-box" id="statusMessage">
+        Fokus lewati 24 jam pertama sampai besok pukul 15:30.
+      </div>
+    </section>
+
+    <section class="card" aria-label="Statistik Rekor">
+      <div class="card-title">
+        <span>Statistik Rekor</span>
+        <span>Target Pecah Rekor: 8 Hari</span>
+      </div>
+      <div class="record-header">
+        <div class="record-text" id="recordLabel">Rekor Sebelumnya: 7 Hari</div>
+        <div class="target-text" id="targetLabel">Target: 8 Hari (192 Jam)</div>
+      </div>
+      <div class="progress-meta">
+        <span>Progres menuju 192 jam</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressBar"></div>
+      </div>
+    </section>
+
+    <div>
+      <button type="button" class="emergency-btn" id="openEmergencyBtn">
+        <span>⚡</span>
+        <span>Lagi Rawan? Klik Ini</span>
+      </button>
+    </div>
+
+    <section class="card" aria-label="Lencana Pencapaian">
+      <div class="card-title">
+        <span>Lencana Pencapaian</span>
+        <span id="milestoneCountLabel">0 / 6 Aktif</span>
+      </div>
+      <div class="milestones-grid" id="milestonesGrid"></div>
+    </section>
+
+    <section class="card" aria-label="Catatan Harian Singkat">
+      <div class="card-title">
+        <span>Catatan Harian Singkat</span>
+        <span id="notesCountLabel">0 Catatan</span>
+      </div>
+      <form class="note-form" id="noteForm">
+        <input
+          type="text"
+          class="note-input"
+          id="noteInput"
+          placeholder="Contoh: Hari ini aman, sibuk olahraga"
+          maxlength="240"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn-primary">Simpan</button>
+      </form>
+      <div class="notes-list" id="notesList"></div>
+    </section>
+
+    <div class="reset-wrap">
+      <button type="button" class="btn-reset" id="openResetBtn">
+        Mulai Ulang Waktu
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="emergencyModal" role="dialog" aria-modal="true" aria-labelledby="emergencyTitle">
+    <div class="modal-box">
+      <div class="modal-title" id="emergencyTitle">Mode Alihkan Fokus (5 Menit)</div>
+      <p class="modal-desc">Lakukan langkah singkat ini sambil menunggu dorongan mereda:</p>
+      <div class="suggestion-box" id="suggestionText">Push-up 15 kali sekarang</div>
+      <div class="countdown-display" id="emergencyCountdown">05:00</div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="nextSuggestionBtn">Ganti Saran</button>
+        <button type="button" class="btn-primary" id="closeEmergencyBtn">Selesai / Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+    <div class="modal-box">
+      <div class="modal-title" id="resetTitle">Mulai Ulang Waktu?</div>
+      <p class="modal-desc">
+        Timer akan direset ke waktu sekarang. Rekor terbaik yang sudah tercapai tetap dijaga.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelResetBtn">Batal</button>
+        <button type="button" class="btn-danger-solid" id="confirmResetBtn">Ya, Mulai Ulang</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
